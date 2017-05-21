@@ -2,12 +2,23 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+	ofSetWindowShape(1500, 1000);
+	ofBackground(255);
+	serial.setup("COM3", 9600);
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
-
+	vector<int> data;
+	if (serial.isInitialized()) {
+		cout <<"N"<< serial.available() << endl;
+		if (serial.available() >= AXIS + 1) {
+			for (int i = 0; i < AXIS; i++) {
+				int value = serial.readByte();
+				cout << value << endl;
+			}
+		}
+	}
 }
 
 //--------------------------------------------------------------

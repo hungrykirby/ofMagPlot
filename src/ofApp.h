@@ -1,6 +1,8 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
+#define AXIS 3
 
 class ofApp : public ofBaseApp{
 
@@ -20,5 +22,16 @@ class ofApp : public ofBaseApp{
 		void windowResized(int w, int h);
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
+
+		ofSerial serial;
+
+		ofEasyCam cam;
+
+		ofBoxPrimitive box;
+		ofSpherePrimitive sphere;
+		ofLight light;
+
+		ofxPanel gui;
+		ofParameter<int> aaa;
 		
 };
